@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <div class="heading">WEATHER FORECAST (5DAYS)</div>
+
+      
+      <section class="top-banner">
+        <div class="container"> 
+     
+       
+          <form class="formstyle">
+                  <select >
+                  <option value="default">Search By</option>
+                  <option value="City Name">City Name</option>
+                  <option value="City Id">City Id</option>
+                  <option value="Zip Code">Zip Code</option>
+                </select>
+            <input type="text" placeholder="Search for a city" autofocus>
+            <button type="submit"><img src="https://img.icons8.com/ios-glyphs/30/null/search--v1.png"/></button>
+          </form>
+        </div>
+      </section>
+      <section class="ajax-section">
+        <div id="div">
+      
+        </div>
+        <ul class="cities"></ul>
+      </section>
+    
+      <script src="./index.js"></script>
+</body>
+</html>
