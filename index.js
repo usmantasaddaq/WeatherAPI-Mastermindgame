@@ -64,16 +64,18 @@ form.addEventListener("submit", (e) => {
       }
     }
   };
-
-  window.myfunctionM = (id) => {
-    array.map((e) => {
+  let image =["clear","cloud","haze","rain","snow"];
+  let count = 0;
+  window.myfunctionM = (id,i) => {
     
-      e.list.filter((items) => {
-        const fahrenheit = (items.main.temp * 1.8 + 32).toFixed(1);
+    array.map((e,i) => {
 
+      e.list.filter((items,i) => {
+        const fahrenheit = (items.main.temp * 1.8 + 32).toFixed(1);
         if (id === items.dt) {
+        i=0
+       
           document.querySelector("li").innerHTML = `
-          
    <li class="dayStyle" id=${items.dt}></li>
    <button  Class="ButtonSt" onclick="centce()">°C</button>
    <button  Class="ButtonStd"onclick="fehren()">°F</button>
@@ -82,9 +84,12 @@ form.addEventListener("submit", (e) => {
           <li class="humidityP">Pressure: ${items.main.pressure} hPa</li> 
           <li class="humidityH">Humidity: ${items.main.humidity} %</li> 
            <li class="humidityW">Wind: ${items.wind.speed} m/s </li>
+           <img  id="image" class="Style" src=./icons/${image[i]}.svg />
            `;
-        }
-      });
+          i++;
+          }
+        });
+        
     });
   };
 
@@ -136,8 +141,9 @@ form.addEventListener("submit", (e) => {
           }
         });
       });
+    
       arr.map((e2) => {
-        console.log(e2,"as")
+        
         let day;
         var dt = new Date(e2.dt_txt);
         if (dt.getDay() === 0) {
@@ -158,16 +164,21 @@ form.addEventListener("submit", (e) => {
         } else if (dt.getDay() == 6) {
           day = "Saturday";
         }
-        e2.weather.filter((weath) => {
+        e2.weather.filter((weath, i) => {
+          
+          
+          
           const weather = `
           <button id=${e2.dt}} class="cardSthyle" onclick="myfunctionM(${e2.dt})">
           <li class="weathercondition">${weath.main}<li><br>
           <li>${day}</li>
-          <img  id="image" class="weatherStyle" src="./icons/clear.svg" /><br><br>
+       
+          <img  id="image" class="weatherStyle" src=./icons/${image[count]}.svg /><br><br>
           <span>${e2.main.temp_min}°${e2.main.temp_max}°</span>
           </button>
           `;
           document.querySelector("ul").insertAdjacentHTML("beforeend", weather);
+          count++;
         });
       });
     })

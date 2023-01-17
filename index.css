@@ -181,7 +181,7 @@ select {
   border: 1px solid black;
 }
 .weatherStyle {
-  height: 50%;
+  height: 100px;
 }
 .CityName {
   font-size: 25px;
@@ -192,11 +192,7 @@ select {
   left: 25%;
   font-family: arial;
 }
-.dayStyle {
-  /* margin-top: 115px; */
-  /* font-size: 15px; */
-  /* list-style: none; */
-}
+
 .containerChild {
   display: flex;
   flex-direction: row;
@@ -283,4 +279,11 @@ li {
   display: flex;
   flex-direction: row;
   width: 100%;
+}
+.Style{
+  display: flex;
+  height: 100px;
+  position: absolute;
+  top: 53px;
+  right: 204px;
 }
